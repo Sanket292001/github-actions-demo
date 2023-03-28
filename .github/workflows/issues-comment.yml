@@ -5,7 +5,7 @@ on:
     types: [created]
       
 jobs:
-  comment:
+  add-comment:
     runs-on: ubuntu-latest
     steps:
       - name: Add Comment
