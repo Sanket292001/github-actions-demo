@@ -8,7 +8,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     outputs:
-      output_is_successful: ${{ steps.Build.outputs.test }}
+      output_is_successful: ${{ steps.Build.outputs.result }}
     steps:
       - name: Build
         run: |
@@ -22,7 +22,7 @@ jobs:
   test:
     runs-on: ubuntu-latest
     needs: build
-    if: needs.build.outputs.output_is_successful == 'true'
+    if: needs.build.outputs.output_is_successful == 'success'
     steps:
       - name: Test
         run:  echo "Test Done"
