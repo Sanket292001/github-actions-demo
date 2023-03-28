@@ -1,7 +1,7 @@
 name: Issue Comment
 
 on: 
-  issues:
+  issue_comment:
     types:
       - create
       
