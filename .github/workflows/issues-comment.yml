@@ -3,7 +3,7 @@ name: Issue Comment
 on: 
   issue_comment:
     types:
-      - create
+      - created
       
 jobs:
   comment:
