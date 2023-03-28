@@ -8,6 +8,8 @@ jobs:
   add-comment:
     runs-on: ubuntu-latest
     steps:
+      - name: Get Event Object
+        run: echo '${{ toJSON(github.event) }}' | jq
       - name: Add Comment
         run: |
           gh api \
