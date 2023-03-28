@@ -7,10 +7,9 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    outputs:
-      output_is_successful: ${{ steps.Build.outputs.result }}
     steps:
       - name: Build
+        id: Build
         run: |
           if [ `expr ${{ github.event.issue.number }} % 2` == 0 ]; then
             echo "Even";
@@ -22,7 +21,7 @@ jobs:
   test:
     runs-on: ubuntu-latest
     needs: build
-    if: needs.build.outputs.output_is_successful == 'success'
+    if: needs.build.result == 'success'
     steps:
       - name: Test
         run:  echo "Test Done"
