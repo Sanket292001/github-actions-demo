@@ -11,10 +11,9 @@ jobs:
       - name: Add Comment
         run: |
           gh api -X POST \
+            -h "Authorization: Bearer ${GITHUB_TOKEN}"
             http://api.github.com/repo/${ORGANIZATION}/${REPOSITORY}/issues/${ISSUE_NUMBER}/comments \
-            -f body='
-            Thanks!
-            We will look into the issue'
+            -d '{"body"="Thanks! We will look into the issue"'}'
         env: 
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           ORGANIZATION: ${{ github.event.organization.login }}
