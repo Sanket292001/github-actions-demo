@@ -11,4 +11,4 @@ jobs:
       - name: hello-world
         run: echo "Hello World"
       - name: end
-        run: echo "DONE"
+        run: echo_ "DONE"
