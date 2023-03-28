@@ -8,15 +8,15 @@ jobs:
   comment:
     runs-on: ubuntu-latest
     steps:
-      - name: Create comment
-        uses: peter-evans/create-or-update-comment@v2
-        with:
-          permissions: write-all
-          issue-number: ${{ github.event.issue.number }} 
-          body: |
-              This is a multi-line test comment
-              - With GitHub **Markdown** :sparkles:
-              - Created by [create-or-update-comment][1]
-
-              [1]: https://github.com/peter-evans/create-or-update-comment
-          reactions: '+1'
+      - name: Add Comment
+        run: |
+          gh api -X POST \
+            http://api.github.com/repo/${ORGANIZATION}/${REPOSITORY}/issues/${ISSUE_NUMBER}/comments \
+            -f body='
+            Thanks!
+            We will look into the issue'
+        env: 
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          ORGANIZATION: ${{ github.event.organization.login }}
+          REPOSITORY: ${{ github.event.repository.name }}
+          ISSUE_NUMBER: ${{ github.event.issue.number }}
