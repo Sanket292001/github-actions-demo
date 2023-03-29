@@ -10,7 +10,9 @@ jobs:
   hello-world:
     runs-on: ubuntu-latest
     steps:
-      - name: hello-world
-        run: echo "Hello World"
+      - name: hello
+        run: echo "Hello"
+      - name: working
+        run: echo "Working"
       - name: end
         run: echo "DONE"
