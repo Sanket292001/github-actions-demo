@@ -36,6 +36,6 @@ jobs:
         run: |
          cd ./webapi
          docker login -u ${{ secrets.DOCKER_USER }} -p ${{ secrets.DOCKER_PASSWORD }}
-         docker build -t "${{ secrets.DOCKER_USER }}/${{ github.event.repository.name }}:1.0.0-${{ github.event.commits.id }}" .
+         docker build -t "${{ secrets.DOCKER_USER }}/${{ github.event.repository.name }}:1.0.0-${{ github.event.head_commit.id }}" .
          docker push "${{ secrets.DOCKER_USER }}/${{ github.event.repository.name }}:1.0.0-${{ github.event.head_commit.id }}"
          
