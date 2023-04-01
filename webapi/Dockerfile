@@ -1,3 +1,4 @@
+# Dockerfile to build the express webapi docker image
 FROM node:18.15.0
 
 WORKDIR /app
