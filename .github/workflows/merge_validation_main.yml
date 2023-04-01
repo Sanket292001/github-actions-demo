@@ -15,7 +15,11 @@ jobs:
         run: tree
       - name: Check Node Version
         run: node --version
-      - name: Change directory
-        run: cd ./webapi
       - name: Install NodeModules
-        run: npm install
+        run: |
+          cd ./webapi
+          npm install    
+      - name: Test
+        run: |
+          cd ./webapi
+          npm test
