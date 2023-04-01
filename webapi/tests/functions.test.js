@@ -3,7 +3,7 @@ const request = require("supertest");
 const app = require("../index");
 
 it("Adds 1+3 equals to 4", () => {
-  expect(functions.sum(1, 3)).toBe(5);
+  expect(functions.sum(1, 3)).toBe(4);
 });
 
 it("Abs Subtract 3-5 equals to 2", () => {
