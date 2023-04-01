@@ -1,8 +1,8 @@
-name: Job Queue WorkFlow
+name: Learn Job Queue WorkFlow
 
 on:
   issues:
-    types: ['opened']
+    types: ["opened"]
 
 jobs:
   build:
@@ -24,5 +24,4 @@ jobs:
     if: needs.build.result == 'success'
     steps:
       - name: Test
-        run:  echo "Test Done"
-      
+        run: echo "Test Done"

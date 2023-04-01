@@ -1,11 +1,11 @@
-name: Pull Request Action
+name: Learn Pull Request Action
 
 on:
   push:
-    branches: ['main']
+    branches: ["main"]
   pull_request:
-    branches: ['main']
-    
+    branches: ["main"]
+
 jobs:
   hello-world:
     runs-on: ubuntu-latest

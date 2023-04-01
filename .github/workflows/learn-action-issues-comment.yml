@@ -1,9 +1,9 @@
-name: Issue Comment
+name: Learn Issue Comment
 
-on: 
+on:
   issues:
     types: [opened]
-      
+
 jobs:
   add-comment-using-action:
     runs-on: ubuntu-latest
@@ -18,7 +18,7 @@ jobs:
             - Created by [create-or-update-comment][1]
 
             [1]: https://github.com/Sanket292001/docker-workflow-check
-          reactions: '+1'
+          reactions: "+1"
   add-comment-using-api:
     runs-on: ubuntu-latest
     steps:
@@ -29,8 +29,8 @@ jobs:
           gh api \
           --method POST \
           /repos/${ORGANIZATION}/${REPOSITORY}/issues/${ISSUE_NUMBER}/comments \
-          -f body='Thanks! We will look into the issue' 
-        env: 
+          -f body='Thanks! We will look into the issue'
+        env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           ORGANIZATION: ${{ github.event.repository.owner.login }}
           REPOSITORY: ${{ github.event.repository.name }}
