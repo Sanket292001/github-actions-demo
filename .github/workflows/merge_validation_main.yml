@@ -31,11 +31,11 @@ jobs:
       - name: Check Node Version
         run: node --version
       - name: Commit ID
-        run: echo "${{ github.event.commits.id }}"
+        run: echo "${{ github.event.head_commit.id }}"
       - name: Docker Setup and Push
         run: |
          cd ./webapi
          docker login -u ${{ secrets.DOCKER_USER }} -p ${{ secrets.DOCKER_PASSWORD }}
          docker build -t "${{ secrets.DOCKER_USER }}/${{ github.event.repository.name }}:1.0.0-${{ github.event.commits.id }}" .
-         docker push "${{ secrets.DOCKER_USER }}/${{ github.event.repository.name }}:1.0.0-${{ github.event.commits.id }}"
+         docker push "${{ secrets.DOCKER_USER }}/${{ github.event.repository.name }}:1.0.0-${{ github.event.head_commit.id }}"
          
