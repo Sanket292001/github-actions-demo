@@ -6,6 +6,10 @@ app.get("/", (req, res) => {
   res.send("API Base Endpoint");
 });
 
+app.get("/test", (req, res) => {
+  res.send("Test Base Endpoint");
+});
+
 app.get("/target_types", (req, res) => {
   res.json([
     "docker-nodes",
